@@ -1,0 +1,5 @@
+<button class="btn btn-light btn-outline-danger" (click)="searchDailyStock()">Refresh</button>
+<div class="dailyGraph" *ngIf="displayGraph">
+    <plotly-plot [data]="dailyGraph.data" [layout]="dailyGraph.layout"></plotly-plot>'
+</div>
+

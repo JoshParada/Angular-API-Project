@@ -1,0 +1,19 @@
+<button class="btn btn-light btn-outline-danger" (click)="searchNews()">Refresh</button>
+<div *ngIf="displayNews" class="news">
+    <div class="card mb-3">
+        <img src="{{results[0].image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{results[0].title}}</h5>
+            <p class="card-text">{{results[0].description}}</p>
+            <a href="{{results[0].url}}" class="btn btn-light btn-outline-danger" target="_blank">Visit Article</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="{{results[1].image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{results[1].title}}</h5>
+            <p class="card-text">{{results[1].description}}</p>
+            <a href="{{results[1].url}}" class="btn btn-light btn-outline-danger" target="_blank">Visit Article</a>
+        </div>
+    </div>
+</div>
