@@ -1,5 +1,4 @@
-<button class="btn btn-light btn-outline-danger" (click)="searchNews()">Refresh</button>
-<div *ngIf="displayNews" class="news">
+<div *ngIf="results.length > 0" class="news">
     <div class="card mb-3">
         <img src="{{results[0].image_url}}" class="card-img-top" alt="...">
         <div class="card-body">

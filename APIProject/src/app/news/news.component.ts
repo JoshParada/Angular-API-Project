@@ -15,11 +15,8 @@ export class NewsComponent implements OnInit {
 
   @Input() symbolSearch:string=''
   results: any[] = [];
-  displayNews:boolean=false
 
-  searchNews(){
-    this.displayNews = !this.displayNews
-    
+  searchNews(){    
     this.stockService.searchNews(this.symbolSearch).then((resp:any) => {
       this.results = resp.data;
       console.log(this.results)

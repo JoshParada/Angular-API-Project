@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DailyComponent } from '../daily/daily.component';
+import { NewsComponent } from '../news/news.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { RealtimeComponent } from '../realtime/realtime.component';
 import { StockService } from '../stock.service';
 
 @Component({
@@ -8,15 +12,21 @@ import { StockService } from '../stock.service';
 })
 export class StockComponent implements OnInit {
 
-  constructor(private stockService: StockService) { }
-
+  @ViewChild(ProfileComponent) profile! : ProfileComponent
+  @ViewChild(RealtimeComponent) realtime! : RealtimeComponent
+  @ViewChild(DailyComponent) daily! : DailyComponent
+  @ViewChild(NewsComponent) news! : NewsComponent
+  
   symbolSearch: string = '';
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    console.log("working")
+    this.profile.searchProfile();
+    this.realtime.searchHourly();
+    this.daily.searchDailyStock();
+    this.news.searchNews();
   }
 
 }

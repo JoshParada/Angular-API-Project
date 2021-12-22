@@ -1,3 +1,3 @@
-<button class="btn btn-light btn-outline-danger" (click)="searchHourly()">Refresh</button>
-<div class="realtimeGraph" *ngIf="displayGraph"><plotly-plot [data]="realtimeGraph.data" [layout]="realtimeGraph.layout"></plotly-plot>'
+<div *ngIf="results.length > 0" class="realtimeGraph">
+    <plotly-plot [data]="realtimeGraph.data" [layout]="realtimeGraph.layout"></plotly-plot>
 </div> 
