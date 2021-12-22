@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+//import * as Plotly from 'plotly.js';
 import { StockService } from '../stock.service';
 import { Daily } from './daily';
+declare const Plotly: { newPlot: (arg0: any, arg1: any[], arg2: { title: string; xaxis: { title: string; showgrid: boolean; zeroline: boolean; }; yaxis: { title: string; showline: boolean; }; }) => void; };
 
 @Component({
   selector: 'daily',
@@ -9,10 +11,35 @@ import { Daily } from './daily';
 })
 export class DailyComponent implements OnInit {
 
+  @ViewChild('dailyGraph', { static: false })
+  graphcontainer!: ElementRef;
+
   constructor(private stockService: StockService) { }
 
   ngOnInit(): void {
   }
+
+  graphDiv = document.getElementById('Graph')
+
+  data = [{
+    x: [1999, 2000, 2001, 2002],
+    y: [10, 15, 13, 17],
+    type: 'scatter'
+  }];
+
+  layout = {
+    title: 'Sales Growth',
+    xaxis: {
+      title: 'Year',
+      showgrid: false,
+      zeroline: false
+    },
+    yaxis: {
+      title: 'Percent',
+      showline: false
+    }
+  };
+
 
   @Input() symbolSearch: string = ''
   results: Daily[] = [];
@@ -21,7 +48,8 @@ export class DailyComponent implements OnInit {
   lowArr: number[] = []
   closeArr: number[] = []
   dateArr: string[] = []
-  graphdata:any[] = [
+
+  graphdata: any[] = [
     { x: this.dateArr, y: this.openArr, name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },
     { x: this.dateArr, y: this.closeArr, name: 'Close Price', type: 'scatter', mode: 'lines+points', marker: { color: 'orange' } },
     { x: this.dateArr, y: this.lowArr, name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
@@ -44,16 +72,45 @@ export class DailyComponent implements OnInit {
       .searchDailyStock(this.symbolSearch, this.lastWeek.toISOString().slice(0, 10))
       .then((resp: any) => {
         this.results = resp.data;
-        console.log(this.results)
+        //console.log(this.results)
+
+        // this.openArr.length = 0
+        // this.highArr.length = 0
+        // this.lowArr.length = 0
+        // this.closeArr.length = 0
+        // this.dateArr.length = 0
+
+        let openA = []
+        let closeA = []
+        let highA = []
+        let lowA = []
+        let dateA = []
 
         for (let day of this.results) {
-          this.openArr.push(day.data.open)
-          this.closeArr.push(day.data.close)
-          this.highArr.push(day.data.high)
-          this.lowArr.push(day.data.low)
-          this.dateArr.push((day.date).slice(0, 10))
+          openA.push(day.data.open)
+          closeA.push(day.data.close)
+          highA.push(day.data.high)
+          lowA.push(day.data.low)
+          dateA.push((day.date).slice(0, 10))
         }
-        console.log(this.openArr, this.dateArr);
+
+
+        this.openArr = openA
+        this.closeArr = closeA
+        this.highArr = highA
+        this.lowArr = lowA
+        this.dateArr = dateA
+
+        console.log(this.openArr, this.closeArr, this.lowArr, this.highArr, this.dateArr);
+        console.log(this.graphcontainer)
+        console.log(this.graphdata)
+
+        //this.graphdata = [];
+        if(this.graphcontainer){
+          Plotly.newPlot(this.graphcontainer.nativeElement, this.graphdata, this.layout);
+
+        }
+
       })
       .catch(console.log);
   }

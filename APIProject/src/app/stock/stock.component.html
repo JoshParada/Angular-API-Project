@@ -1,12 +1,22 @@
 <div class="page">
     <div class="header">
-        <div class="input-group mb-3">
-            <input type="text" [(ngModel)]="symbolSearch" class="form-control" placeholder="Enter Symbol"
-                aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-light btn-outline-danger" (click)="onSubmit()">Submit</button>
-        </div>
+        <form class="createteamform" #createteamform="ngForm" (ngSubmit)="onSubmit(createteamform.valid)">
+            <div class="input-group mb-3">
+                <div class="form-check form-check-inline">
+                    <input name="stockradio" class="form-check-input" type="radio" id="inlineRadio1" value="stock" required [(ngModel)]="isStock">
+                    <label class="form-check-label" for="inlineRadio1">Stock</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input name="cryptoradio" class="form-check-input" type="radio" id="inlineRadio2" value="crypto" required [(ngModel)]="isStock">
+                    <label class="form-check-label" for="inlineRadio2">Crypto</label>
+                  </div>
+                <input name="symbolSearch" type="text" [(ngModel)]="symbolSearch" class="form-control" placeholder="Enter Symbol"
+                    aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                <button type="submit" class="btn btn-light btn-outline-danger" [disabled]="createteamform.invalid">Submit</button>
+            </div>
+        </form>
     </div>
-    
+
     <div class="container">
         <div class="profile">
             <profile [symbolSearch]="symbolSearch"></profile>

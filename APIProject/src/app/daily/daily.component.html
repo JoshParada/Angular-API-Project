@@ -1,5 +1,7 @@
 <div *ngIf="results.length > 0" class="dailyGraph">
-    <plotly-plot [data]="dailyGraph.data" [layout]="dailyGraph.layout" [updateOnDataChange]="true"></plotly-plot>
+    <plotly-plot #dailyGraph [data]="dailyGraph.data" [layout]="dailyGraph.layout" [updateOnDataChange]="true"></plotly-plot>
 </div>
+
+
 <div id="Graph" #Graph></div>
 
