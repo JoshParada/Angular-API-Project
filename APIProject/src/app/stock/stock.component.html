@@ -18,17 +18,32 @@
     </div>
 
     <div class="container">
-        <div class="profile">
-            <profile [symbolSearch]="symbolSearch"></profile>
+        <div class="stockcontainer">
+            <div class="profile">
+                <profile [symbolSearch]="symbolSearch"></profile>
+            </div>
+            <div class="realtime">
+                <realtime [symbolSearch]="symbolSearch"></realtime>
+            </div>
+            <div class="daily">
+                <daily [symbolSearch]="symbolSearch"></daily>
+            </div>
+            <div class="news">
+                <news [symbolSearch]="symbolSearch"></news>
+            </div>
         </div>
-        <div class="realtime">
-            <realtime [symbolSearch]="symbolSearch"></realtime>
-        </div>
-        <div class="daily">
-            <daily [symbolSearch]="symbolSearch"></daily>
-        </div>
-        <div class="news">
-            <news [symbolSearch]="symbolSearch"></news>
+        <div class="cryptocontainer">
+            <div class="cryptoprofile">
+                <cryptoprofile></cryptoprofile>
+            </div>
+            <div class="crytpolatest">
+                <cryptolatest></cryptolatest>
+            </div>
+            <div class="cryptodaily">
+                <cryptodaily></cryptodaily>
+            <div class="cryptoweek">
+                <cryptoweek></cryptoweek>
+            </div>
         </div>
     </div>
 </div>

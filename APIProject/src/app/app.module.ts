@@ -13,6 +13,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { RealtimeComponent } from './realtime/realtime.component';
 import { DailyComponent } from './daily/daily.component';
 import { NewsComponent } from './news/news.component';
+import { CryptoprofileComponent } from './cryptoprofile/cryptoprofile.component';
+import { CryptolatestComponent } from './cryptolatest/cryptolatest.component';
+import { CryptodailyComponent } from './cryptodaily/cryptodaily.component';
+import { CryptoweekComponent } from './cryptoweek/cryptoweek.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -23,7 +27,11 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ProfileComponent,
     RealtimeComponent,
     DailyComponent,
-    NewsComponent
+    NewsComponent,
+    CryptoprofileComponent,
+    CryptolatestComponent,
+    CryptodailyComponent,
+    CryptoweekComponent
   ],
   imports: [
     BrowserModule,
