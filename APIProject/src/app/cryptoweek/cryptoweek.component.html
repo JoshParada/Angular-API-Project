@@ -1,1 +1,3 @@
-<!-- <p>cryptoweek works!</p> -->
+<div *ngIf="results.length > 0" class="dailyGraph">
+    <plotly-plot [data]="weekGraph.data" [layout]="weekGraph.layout" [useResizeHandler]="true"></plotly-plot>
+</div>

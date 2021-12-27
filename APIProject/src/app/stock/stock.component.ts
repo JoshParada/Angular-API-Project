@@ -55,7 +55,7 @@ export class StockComponent implements OnInit {
       this.searchByName().then(resp => {
         this.cryptoprofile.searchByID(this.cryptoID);
         this.cryptolatest.searchCurrent(this.cryptoID);
-        this.cryptodaily.searchToday(this.cryptoID);
+        // this.cryptodaily.searchToday(this.cryptoID);
         this.cryptoweek.searchWeek(this.cryptoID);
 
         //console.log("this is response",resp)

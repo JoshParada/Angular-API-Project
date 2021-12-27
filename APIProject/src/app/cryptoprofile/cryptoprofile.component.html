@@ -1,4 +1,7 @@
-<!-- <p>cryptoprofile works!</p>
 <div *ngIf="results.length > 0">
-    <p>{{results[0].id}}</p>
-</div> -->
+    <h2>{{results[0].name}}</h2>
+    <p>Symbol: {{results[0].symbol}}</p>
+    <p>Rank: {{results[0].rank}}</p>
+    <p>Description: {{results[0].description}}</p>
+    <p><a href="{{results[0].links.website}}" target="_blank">Visit Site</a></p>
+</div>

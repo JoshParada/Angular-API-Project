@@ -17,8 +17,9 @@ export class CryptoprofileComponent implements OnInit {
 
   searchByID(id:string){
     this.cryptoService.searchByID(id).then((resp:any) => {
-      this.results = resp;
-      console.log(id,resp,this.results)
+      this.results = []
+      this.results.push(resp)
+      console.log(id,resp,typeof this.results,this.results)
     })
   }
 }

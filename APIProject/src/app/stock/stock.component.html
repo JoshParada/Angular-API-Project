@@ -18,7 +18,8 @@
     </div>
 
     <div class="container">
-        <div class="stockcontainer">
+        <div class="stockcontainer" *ngIf="isStock == 'stock'">
+            <!-- <p>STOCK</p> -->
             <div class="profile">
                 <profile [symbolSearch]="symbolSearch"></profile>
             </div>
@@ -32,7 +33,8 @@
                 <news [symbolSearch]="symbolSearch"></news>
             </div>
         </div>
-        <div class="cryptocontainer">
+        <div class="cryptocontainer" *ngIf="isStock == 'crypto'">
+            <!-- <p>CRYPTO</p> -->
             <div class="cryptoprofile">
                 <cryptoprofile></cryptoprofile>
             </div>
