@@ -9,15 +9,15 @@ import { Daily } from './daily';
 })
 export class DailyComponent implements OnInit {
 
-  // public example = {
-  //   data: [
-  //     { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },
-  //     { x: ['1', '2', '3'], y: [3, 3, 3], name: 'Close Price', type: 'scatter', mode: 'lines+points', marker: { color: 'orange' } },
-  //     { x: ['1', '2', '3'], y: [4, 4, 4], name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
-  //     { x: ['1', '2', '3'], y: [5, 5, 5], name: 'High Price', type: 'scatter', mode: 'lines+points', marker: { color: 'green' } },
-  //   ],
-  //   layout: { width: 620, height: 540, title: `Previous Week` }
-  // };
+  public example = {
+    data: [
+      { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },
+      { x: ['1', '2', '3'], y: [3, 3, 3], name: 'Close Price', type: 'scatter', mode: 'lines+points', marker: { color: 'orange' } },
+      { x: ['1', '2', '3'], y: [4, 4, 4], name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
+      { x: ['1', '2', '3'], y: [5, 5, 5], name: 'High Price', type: 'scatter', mode: 'lines+points', marker: { color: 'green' } },
+    ],
+    layout: { width: 580, height: 540, title: `Previous Week` }
+  };
 
   public dailyGraph = {
     data: [
@@ -26,7 +26,7 @@ export class DailyComponent implements OnInit {
       { x: ['1', '2', '3'], y: [4, 4, 4], name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
       { x: ['1', '2', '3'], y: [5, 5, 5], name: 'High Price', type: 'scatter', mode: 'lines+points', marker: { color: 'green' } },
     ],
-    layout: { width: 620, height: 540, title: `Previous Week` }
+    layout: { width: 580, height: 540, title: `Previous Week` }
   };
 
   constructor(private stockService: StockService) { }
@@ -35,6 +35,9 @@ export class DailyComponent implements OnInit {
   }
 
   @Input() symbolSearch: string = ''
+
+  quote: any[] = []
+
   results: Daily[] = [];
   openArr: number[] = []
   highArr: number[] = []
@@ -44,6 +47,13 @@ export class DailyComponent implements OnInit {
 
   lastWeek = new Date();
   pastDate = this.lastWeek.getDate() - 7;
+
+  searchQuote(){
+    this.stockService.searchQuote(this.symbolSearch).then((resp:any) => {
+      this.quote = resp.data;
+      console.log(this.quote)
+    })
+  }
 
   searchDailyStock() {
 

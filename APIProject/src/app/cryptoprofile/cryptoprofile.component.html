@@ -1,7 +1,8 @@
-<div *ngIf="results.length > 0">
-    <h2>{{results[0].name}}</h2>
+<div class="container" *ngIf="results.length > 0">
+    <h2 class="underline" style="text-align: center;">Profile</h2><br>
+    <h4>{{results[0].name}}</h4>
     <p><span class="underline">Symbol:</span> {{results[0].symbol}}</p>
     <p><span class="underline">Rank:</span> {{results[0].rank}}</p>
     <p><span class="underline">Description:</span> {{results[0].description}}</p>
-    <p><a href="{{results[0].links.website}}" target="_blank">Visit Site</a></p>
+    <p><a href="{{results[0].links.website}}" target="_blank">{{results[0].links.website}}</a></p><br>
 </div>

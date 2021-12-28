@@ -47,7 +47,8 @@ export class StockComponent implements OnInit {
     if (this.isStock == 'stock') {
       console.log('in stock')
       this.profile.searchProfile();
-      this.realtime.searchHourly();
+      this.daily.searchQuote();
+      //this.realtime.searchHourly();
       this.daily.searchDailyStock();
       this.news.searchNews();
 

@@ -36,6 +36,21 @@ export class StockService {
     })
   }
 
+  public searchQuote(symbol:string){
+    return new Promise((resolve,reject)=>{
+      this.http.get(`https://api.stockdata.org/v1/data/quote?symbols=${symbol}&api_token=${this.APIkey}`).subscribe(
+        (res)=>{
+          //console.log(res)
+          resolve(res);
+        }, (err)=>{
+          reject(err);
+        }
+      )
+    })
+
+    
+  }
+
   public searchHourly(symbol:string,date:string){
     return new Promise((resolve,reject)=>{
       this.http.get(`https://api.stockdata.org/v1/data/intraday?symbols=${symbol}&interval=hour&sort=asc&date_from=${date}&api_token=${this.APIkey}`).subscribe(

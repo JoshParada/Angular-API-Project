@@ -1,4 +1,6 @@
 <div *ngIf="results.length > 0" class="dailyGraph">
+    <h2 class="underline" style="text-align: center;">Data</h2><br>
+    <p><span class="underline">Current Price</span>: ${{quote[0].price}}</p>
     <plotly-plot [data]="dailyGraph.data" [layout]="dailyGraph.layout" [useResizeHandler]="true"></plotly-plot>
 </div>
 <!-- <plotly-plot [data]="example.data" [layout]="example.layout" [useResizeHandler]="true"></plotly-plot> -->

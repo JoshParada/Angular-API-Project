@@ -12,7 +12,7 @@ export class CryptolatestComponent implements OnInit {
     data: [
       { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'bar', mode: 'lines+points', marker: { color: 'blue' } },
       ],
-    layout: { width: 620, height: 540, title: `Previous Week` }
+    layout: { width: 580, height: 540, title: `Previous Week` }
   };
 
   constructor(private cryptoService:CryptoService) { }

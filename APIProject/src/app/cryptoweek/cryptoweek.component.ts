@@ -15,7 +15,7 @@ export class CryptoweekComponent implements OnInit {
       { x: ['1', '2', '3'], y: [4, 4, 4], name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
       { x: ['1', '2', '3'], y: [5, 5, 5], name: 'High Price', type: 'scatter', mode: 'lines+points', marker: { color: 'green' } },
     ],
-    layout: { width: 620, height: 540, title: `Previous Week` }
+    layout: { width: 580, height: 540, title: `Previous Week` }
   };
 
   constructor(private cryptoService: CryptoService) { }
