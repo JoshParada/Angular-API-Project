@@ -9,6 +9,16 @@ import { Daily } from './daily';
 })
 export class DailyComponent implements OnInit {
 
+  // public example = {
+  //   data: [
+  //     { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },
+  //     { x: ['1', '2', '3'], y: [3, 3, 3], name: 'Close Price', type: 'scatter', mode: 'lines+points', marker: { color: 'orange' } },
+  //     { x: ['1', '2', '3'], y: [4, 4, 4], name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
+  //     { x: ['1', '2', '3'], y: [5, 5, 5], name: 'High Price', type: 'scatter', mode: 'lines+points', marker: { color: 'green' } },
+  //   ],
+  //   layout: { width: 620, height: 540, title: `Previous Week` }
+  // };
+
   public dailyGraph = {
     data: [
       { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },

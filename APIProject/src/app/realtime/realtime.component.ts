@@ -9,6 +9,16 @@ import { Daily } from '../daily/daily';
 })
 export class RealtimeComponent implements OnInit {
 
+  // public example2 = {
+  //   data: [
+  //     { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },
+  //     { x: ['1', '2', '3'], y: [3, 3, 3], name: 'Close Price', type: 'scatter', mode: 'lines+points', marker: { color: 'orange' } },
+  //     { x: ['1', '2', '3'], y: [4, 4, 4], name: 'Low Price', type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
+  //     { x: ['1', '2', '3'], y: [5, 5, 5], name: 'High Price', type: 'scatter', mode: 'lines+points', marker: { color: 'green' } },
+  //   ],
+  //   layout: { width: 620, height: 540, title: `Today` }
+  // };
+
   public realtimeGraph = {
     data: [
       { x: ['1', '2', '3'], y: [2, 2, 2], name: 'Open Price', type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } },

@@ -1,8 +1,9 @@
 <div *ngIf="results.length > 0">
-    <p>Current Price: ${{results[0].quotes.USD.price}}</p>
-    <p>Last Hour Percent Change: ${{results[0].quotes.USD.percent_change_1h}}</p>
-    <p>Last Day Percent Change: ${{results[0].quotes.USD.percent_change_24h}}</p>
-    <p>Last Week Percent Change: ${{results[0].quotes.USD.percent_change_7d}}</p>
-    <p>Last Month Percent Change: ${{results[0].quotes.USD.percent_change_30d}}</p>
-    <p>Last Year Percent Change: ${{results[0].quotes.USD.percent_change_1y}}</p>
+    <h4>Current Price: ${{results[0].quotes.USD.price}}</h4>
+    <p><span class="underline">Percent change in the last:</span></p>
+    <p><span class="underline">Hour</span>- %{{results[0].quotes.USD.percent_change_1h}}</p>
+    <p><span class="underline">Day</span>- %{{results[0].quotes.USD.percent_change_24h}}</p>
+    <p><span class="underline">Week</span>- %{{results[0].quotes.USD.percent_change_7d}}</p>
+    <p><span class="underline">Month</span>- %{{results[0].quotes.USD.percent_change_30d}}</p>
+    <p><span class="underline">Year</span>- %{{results[0].quotes.USD.percent_change_1y}}</p>
 </div>
