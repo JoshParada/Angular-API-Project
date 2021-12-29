@@ -15,9 +15,13 @@ export class CryptodailyComponent implements OnInit {
 
   results: any[] = [];
 
-  searchToday(id:string){
-    this.cryptoService.searchToday(id).then((resp:any) => {
-      this.results[0] = resp.data;
+  searchTweet(id:string){
+    this.cryptoService.searchTweet(id).then((resp:any) => {
+      this.results = []
+      for(let i = 0;i<5;i++){
+        this.results.push(resp[i])
+
+      }
       console.log(id,resp,this.results)
     })
   }

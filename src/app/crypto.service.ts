@@ -73,5 +73,17 @@ export class CryptoService {
     })
   }
 
+  searchTweet(id:string){
+    return new Promise((resolve,reject)=>{
+      this.http.get(`https://api.coinpaprika.com/v1/coins/${id}/twitter`).subscribe(
+        (res)=>{
+          //console.log(res)
+          resolve(res);
+        }, (err)=>{
+          reject(err);
+        }
+      )
+    })
+  }
 
 }
