@@ -10,7 +10,7 @@ import { CryptodailyComponent } from '../cryptodaily/cryptodaily.component';
 import { CryptoweekComponent } from '../cryptoweek/cryptoweek.component';
 
 @Component({
-  selector: 'stock',
+  selector: 'stock-app',
   templateUrl: './stock.component.html',
   styleUrls: ['./stock.component.scss']
 })
